@@ -22,7 +22,7 @@ I was eager to develop this tool with the goal in mind that every animal should 
 - Bootstrap library
 - CSS3
 - HTML5
-- 3rd party APIs and libraries 
+- 3rd party APIs and libraries (axios, petfinder api etc.)
 
 # Contributors
 Alexander Zuniga [GitHub](https://github.com/Rthe3rd) | [LinkedIn](https://www.linkedin.com/in/alexander-zuniga-a7317534/)
