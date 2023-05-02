@@ -1,0 +1,437 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+.App {
+  text-align: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/********************** Main.jsx **********************/
+.container {
+  height: 100vh;
+}
+
+.subDiv {
+  text-align: center;
+  height: 33.3333vw;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 3pt solid #1a58b5 
+}
+
+.topSubDiv{
+  background-size: 100%;
+  height: 30vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.formInput{
+  margin-top: 100px;
+}
+
+.formContainer{
+  background-color: white;
+  height: 45px;
+  width: 100%;
+  padding: 10px;
+}
+
+.search-btn{
+  
+}
+
+.search-container{
+  display: flex;
+  justify-content: center;
+}
+
+.vcenter{
+  display: flex;
+  align-items: center;
+  justify-content: center
+}
+
+.smallFont{
+  font-size: .875em;
+  font-weight: 700;
+  font-family: 'Arvo';
+}
+
+/********************** NavBar.jsx **********************/
+/* .navBarContainer{
+  position: relative;
+  width: 100%;
+} */
+
+.navigationBar{
+  width:100%;
+  display: flex;
+  height: 35px;
+  background-color: rgba(0,0,255,.1);
+}
+
+.navigationComponents, .vcenter{
+  height: 100%;
+}
+
+.heading{
+  background-color: #efeef1;
+  padding: 5px;
+  font-size: .750em;
+  /* font-family: 'Arvo', sans-serif; */
+  font-family: 'Arvo';
+  font-weight: 500;
+}
+
+/********************** ImageSlider.jsx **********************/
+
+.slider{
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image {
+  width: 80%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.right-arrow{
+  position: absolute;
+  top: 50%;
+  right: 0px;
+  font-size: 2rem;
+  color: #000;
+  z-index: 10;
+  cursor: pointer;
+  user-select: none;
+}
+
+.left-arrow{
+  position: absolute;
+  top: 50%;
+  left: 0px;
+  font-size: 2rem;
+  color: #000;
+  z-index: 10;
+  cursor: pointer;
+  user-select: none;
+}
+
+.slide{
+  opacity: 0;
+  transition-duration: 1s;
+}
+
+.slide.active{
+  opacity: 1;
+  transition-duration: 1s;
+  transform: scale(1.1);
+}
+
+/********************** **********************/
+
+
+/********************** PetsNearby **********************/
+
+.petsNearby{
+  display: block;
+}
+
+/********************** SearchResults **********************/
+
+.main-container{
+  background-color: #eceef0;
+}
+
+.resultCard{
+  height: 100%;
+}
+
+.button-text{
+  font-size: .85em;
+  font-weight: 600;
+  background-color: #6D8399;
+  color: #EFF1F2;
+  border:none;
+  font-family: 'Pt Sans';
+}
+
+.detailPhoto{
+  width: 80%;
+}
+
+.card-image{
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.see-more-button{
+  align-items: center;
+}
+
+.card-body-grid{
+  grid-template-rows: 100px;
+}
+
+.dog-details{
+  height: 50px;
+  overflow: auto;
+  font-family: 'Pt Sans';
+  font-size: 17px;
+}
+
+.dog-name{
+  font-family: 'Arvo';
+  font-weight: 600;
+}
+
+
+/********************** Home/ChatPage **********************/
+
+/* *{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'poppins', san-serif;
+} */
+
+
+.home__cta {
+  width: 30%;
+  padding: 10px;
+  cursor: pointer;
+  background-color: #607eaa;
+  color: whitesmoke;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  font-family: f;
+}
+
+.chat {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  background-color: #e4d8e8;
+}
+
+.chat__sidebar {
+  height: 100%;
+  background-color: #f9f53b;
+  flex: .02;
+  padding: 20px;
+  border-right: 1px solid #fdfdfd;
+}
+
+.chat__main {
+  height: 100%;
+  flex: 0.8;
+}
+
+.chat__header{
+  margin: 30px 0 20px 0;
+}
+
+.chat__users > * {
+  margin-bottom: 10px;
+  color: #607eaa;
+  font-size: 14px;
+}
+
+.chat__mainHeader {
+  width: 100vw;
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #385b9c;
+  color: white;
+
+}
+.leaveChat__btn {
+  padding: 10px;
+  width: 150px;
+  border: none;
+  outline: none;
+  background-color: #e4d8e8;
+  cursor: pointer;
+  color: black;
+  font-family: Helvetica, sans-serif;
+  font-size: 1em;
+  font-weight: 700;
+}
+.message__container {
+  width: 100%;
+  height: 80vh;
+  background-color: #e4d8e8;
+  padding: 20px;
+  overflow-y: scroll;
+}
+
+.chatBody{
+  background-color: #a31fce;
+}
+
+.message__container > * {
+  margin-bottom: 10px;
+}
+.chat__footer {
+  padding: 10px;
+  background-color: #f9f5eb;
+  height: 10vh;
+}
+.form {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.message {
+  width: 80%;
+  height: 100%;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  outline: none;
+  padding: 15px;
+}
+.sendBtn {
+  border: none;
+  outline: none;
+  color: #eae3d2;
+  cursor: pointer;
+
+  padding: 10px;
+  width: 150px;
+  border: none;
+  outline: none;
+  background-color: #e4d8e8;
+  cursor: pointer;
+  color: black;
+  font-family: Helvetica, sans-serif;
+  font-size: 1em;
+  font-weight: 700;
+}
+.sendBtn:hover {
+  background-color: #d2d4f4;
+}
+.message__recipient {
+  /* background-color: #f5ccc2; */
+  background-color: #1982FC;
+  width: 300px;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 15px;
+}
+.message__sender {
+  background-color: whitesmoke;
+  max-width: 300px;
+  padding: 10px;
+  border-radius: 10px;
+  margin-left: auto;
+  font-size: 15px;
+}
+.message__chats > p {
+  font-size: 13px;
+}
+.sender__name {
+  text-align: right;
+}
+.message__status {
+  position: fixed;
+  bottom: 50px;
+  font-size: 13px;
+  font-style: italic;
+}
+
+.otherSender_name{
+  text-align: start;
+}
+
+/********************** Login Page **********************/
+
+.loginPageLeft{
+  background-color: #385b9c;
+  border:none;
+}
+
+.loginPageLeftBigText{
+  color: white;
+  font-family: Helvetica, sans-serif;
+  font-size: 5.5em;
+  font-weight: 600;
+  font-style: italic;
+}
+
+.loginPageLeftSmallText{
+  color: white;
+  font-family: Helvetica, sans-serif;
+  font-size: 1.5em;
+  font-weight: 600;
+  font-style: italic;
+  text-align: start;
+  margin-right: 25px;
+}
+
+.loginPageLeftSubContainer{
+  display: flex;
+  align-items: center;
+}
+
+.loginPageRight{
+  background-color: #e4d8e8;
+  border:none;
+}
+
+.signIn{
+  background-color: #385b9c;
+  color:white;
+  font-weight: 600;
+  /* margin: 0 1% 0 1% */
+}
+
+
+.home__container{
+  width: 100%;
+  height:100vh;
+  display: flex; 
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.home__container  > * {
+  margin-bottom: 10px;;
+}
+
+.home__header{
+  font-family: Helvetica, sans-serif;
+  font-weight: 600;
+  font-style: italic;
+}
+
+/* .username__input {
+  width: 67%;
+} */
+
+.login-buttons{
+  display:flex;
+  justify-content: space-between;
+}
+

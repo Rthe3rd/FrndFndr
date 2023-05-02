@@ -1,0 +1,190 @@
+.card-container {
+    width: 18rem;
+}
+
+.my-popup-content {
+    background-color: black;
+}
+
+.my-popup-contentStyle {
+    background-color: white;
+}
+
+.my-popup {
+    background: brown;
+}
+
+.my-popup-overlay {
+    border: 4px solid black;
+    padding: 0px;
+}
+
+.my-popup-arrow {
+    border: 4px solid black;
+}
+
+
+/* Login in page */
+
+.left-login-container {
+    height: 100vh;
+    background-color: #8582AF;
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-login-container {
+    display: flex;
+}
+
+.left-text-main-container {}
+
+.right-login-container {
+    height: 100vh;
+    background-color: #D8D8E7;
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.main-logo-text {
+    font-family: "Arvo";
+    font-size: 75px;
+    font-weight: 600;
+    color: #F6F6F9;
+    font-style: italic;
+    margin-right: 100px;
+}
+
+.sub-logo-text {
+    font-family: "PT Sans";
+    font-size: 25px;
+    font-weight: 600;
+    color: #F6F6F9;
+    font-style: italic;
+    margin-left: 100px;
+}
+
+.login-continater {
+    width: 85%;
+    display: flex;
+    justify-content: center;
+    margin-top: 42px;
+}
+
+.login-card-title {
+    font-family: "Arvo";
+    font-size: 50px;
+    font-weight: 600;
+    color: #F6F6F9;
+    font-style: italic;
+    margin-bottom: 5%;
+}
+
+.login-card {
+    height: 300px;
+    width: 90%;
+    background-color: #8582AF;
+    border-radius: 1.5%;
+    padding-top: 15%;
+    box-shadow: 5px 5px 0px #111;
+}
+
+.login-card-input-container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.login-card-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
+}
+
+.sign-in-btn {
+    align-items: center;
+    background-color: #5C5993;
+    border: none;
+    border-radius: 8px;
+    box-sizing: border-box;
+    color: #F6F6F9;
+    cursor: pointer;
+    font-family: "PT Sans";
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    width: 45%;
+    height: 48px;
+    
+}
+
+.sign-in-btn:hover {
+    background-color: #DDD5E5;
+    color: #111;
+    transition: .35s;
+}
+
+
+
+/* CSS */
+.button-56 {
+    align-items: center;
+    background-color: #fee6e3;
+    border: 2px solid #111;
+    border-radius: 8px;
+    box-sizing: border-box;
+    color: #111;
+    cursor: pointer;
+    display: flex;
+    font-family: Inter, sans-serif;
+    font-size: 16px;
+    height: 48px;
+    justify-content: center;
+    line-height: 24px;
+    max-width: 100%;
+    padding: 0 25px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.button-56:after {
+    background-color: #111;
+    border-radius: 8px;
+    content: "";
+    display: block;
+    height: 48px;
+    left: 0;
+    width: 100%;
+    position: absolute;
+    top: -2px;
+    transform: translate(8px, 8px);
+    transition: transform .2s ease-out;
+    z-index: -1;
+}
+
+.button-56:hover:after {
+    transform: translate(0, 0);
+}
+
+.button-56:active {
+    background-color: #ffdeda;
+    outline: 0;
+}
+
+.button-56:hover {
+    outline: 0;
+}
+
+@media (min-width: 768px) {
+    .button-56 {
+        padding: 0 40px;
+    }
+}

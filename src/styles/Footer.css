@@ -1,0 +1,144 @@
+/* need a max-container so footer .main-sub-containers don't get too large */
+
+.top-container{
+
+}
+
+.top-sub-contianer{
+    display: flex;
+    background-color: #5C5993;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo{
+    width: 80px;
+}
+
+.slogan{
+    color: #D8D8E7;
+    font-size: .6rem;
+    font-weight:600;
+    font-family: 'Arvo';
+    position: relative;    
+    top: .45em;
+
+    /* margin-top: .5em; */
+    /* margin-left: .25em; */
+}
+
+.main-footer-container{
+    background-color: #D8D8E7;
+    margin: 0 auto;
+    padding: .5em 5.25em;
+    width: min(90%, 1000px);
+}
+
+.main-container{
+    display:flex;
+    background-color: #D8D8E7;
+}
+
+.main-footer-container-logo{
+    text-align: left;
+    font-family: "Arvo";
+    font-size: 1rem;
+    font-weight: 600;
+    color: black;
+}
+
+.main-sub-container{
+    text-align: left;
+    width: 33%;
+}
+
+.link-list{
+    list-style: none;
+    margin: 0;    
+    padding: 0;
+}
+
+.footer-li{
+    border-top: 1px solid black;
+    margin-right: .5em;
+    padding-bottom: .25em ;
+    animation: hover .1s ease-in ;
+}
+
+.link{
+    text-decoration: none;
+    font-family: "PT Sans";
+    font-size: .65rem;
+    font-weight: 600;
+    color: black;
+    padding-left: .5em;
+}
+
+.footer-li:hover{
+    transform: translateY(-1px) translateX(-1px);
+}
+
+.sign-up-text{
+    text-decoration: none;
+    font-family: "PT Sans";
+    font-size: .65rem;
+    font-weight: 600;
+    color: black;
+}
+
+.sign-up-button{
+    font-family: "PT Sans";
+    font-size: .65rem;
+    font-weight: 600;
+    border: .20em solid black;
+    border-radius: 1.5em;
+    padding: .5em 0;
+    background-color: #D8D8E7;
+    width: 100%;
+
+}
+
+.sign-up-button:hover{
+    color: #D8D8E7;
+    background-color: black;
+    transform: translateY(-1px) translateX(-1px);
+}
+
+.sign-up-button:active{
+    color: #D8D8E7;
+    background-color: black;
+    transform: translateY(-.5px) translateX(-.5px);
+
+}
+.bottom-container{
+
+}
+
+.trademark{
+    color: #D8D8E7;
+    background-color: #5C5993;
+    font-size: .5rem;
+    font-weight:500;
+    font-family: 'Arvo';
+    margin: 0;
+    padding-top: .5em;
+}
+
+.footer-notes{
+    color: #D8D8E7;
+    background-color: #5C5993;
+    font-size: .5rem;
+    font-weight:500;
+    font-family: 'Arvo';    
+    margin: 0;
+}
+
+.footer-icon{
+    color: #D8D8E7;
+    background-color: #5C5993;
+    font-size: .5rem;
+    font-weight:500;
+    font-family: 'Arvo';    
+    text-decoration: none;
+}
