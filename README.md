@@ -15,11 +15,11 @@ I was eager to develop this tool with the goal in mind that every animal should 
 
 - Flexible search parameters: enable users to find exatly what they are looking for!
 
-<img width="700" alt="frndfndr2" src="https://user-images.githubusercontent.com/114183011/235749554-fe99cbda-7dd5-4aaf-9205-3132b0406743.png">
+<img width="700" alt="frndfndr1" src="https://user-images.githubusercontent.com/114183011/235749284-ff7ceee5-5e39-4408-b406-279bdff25dea.jpeg">
 
 - Chat: to create an easy to use search tool for animals available for adoption around the country.  
 
-<img width="700" alt="frndfndr1" src="https://user-images.githubusercontent.com/114183011/235749284-ff7ceee5-5e39-4408-b406-279bdff25dea.jpeg">
+<img width="700" alt="frndfndr2" src="https://user-images.githubusercontent.com/114183011/235749554-fe99cbda-7dd5-4aaf-9205-3132b0406743.png">
 
 # Built with
 - Javascript
