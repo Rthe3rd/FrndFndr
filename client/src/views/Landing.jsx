@@ -35,29 +35,13 @@ const Landing = (props) => {
         // Getting token from local storage and slicing the double quotes from the start and end
         let cleanToken = localStorage.getItem("API_TOKEN").slice(1,-1)
         setcleanToken(cleanToken);
-        // axios.get('https://api.petfinder.com/v2/animals', {
-        //     params: {
-        //         'type': 'dog',
-        //         'location': 'Chicago, IL'
-        //     },
-        //     headers: {
-        //         'Authorization': `Bearer ${cleanToken}`
-        //     }
-        // })
-        // .then((response) => {
-        //     console.log(response.data)
-        // })
-        // .catch((error) => {
-        //     console.log(error)
-        //     // console.log(error.response.data['invalid-params'])
-        // })
     }, [cleanToken])
 
     return (
         <div className='body-container'>
             <NavBar/>
             <div className='background-container'>
-                <PetSearchForm className = "search-form"/>
+                <PetSearchForm className = "search-form" token = {props.cleanToken}/>
                 <div className='center-header-container'>
                     <h2 className='center-header'>Find Your Future Best Friend</h2>
                     <p className='center-sub-header'>Easily search our database of shelters from all over the country </p>
@@ -95,22 +79,6 @@ const Landing = (props) => {
             {/* CONTAINER FOR ALL THE NEARBY PET CARDS */}
             <div className = 'nearby-container'>
                 <PetsNearby/>
-                {/* <div className = "nearby-card"  data-custom = "dog">
-                    <img src = {quickDog} alt = "" className='nearby-card-search-card' data-custom = "dog"></img>
-                    <p className = "nearby-card-text" data-custom = "other"> Carl </p>
-                </div>
-                <div className = "nearby-card"  data-custom = "cat">
-                    <img src = {quickCat} alt = "" className='nearby-card-search-card' data-custom = "cat"></img>
-                    <p className = "nearby-card-text" data-custom = "other"> Luna </p>
-                </div>
-                <div className = "nearby-card"  data-custom = "dog">
-                    <img src = {quickDog} alt = "" className='nearby-card-search-card' data-custom = "dog"></img>
-                    <p className = "nearby-card-text" data-custom = "other"> Carl </p>
-                </div>
-                <div className = "nearby-card"  data-custom = "cat">
-                    <img src = {quickCat} alt = "" className='nearby-card-search-card' data-custom = "cat"></img>
-                    <p className = "nearby-card-text" data-custom = "other"> Luna </p>
-                </div> */}
             </div>
             {/* SMALL CONTAINER FOR ALL THE NEARBY PET CARDS */}
             <div className = "nearby-container-small" onClick = {setqQuickSearch} data-custom = "other">

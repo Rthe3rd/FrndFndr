@@ -36,7 +36,6 @@ const Login = ({socket, token}) => {
         .then((response) => {
             token(response.data.access_token)
             window.localStorage.setItem("API_TOKEN", JSON.stringify(response.data.access_token))
-            console.log(localStorage.getItem("API_TOKEN"))
         })
         .catch((error) => {console.log(error)})
     }, [])

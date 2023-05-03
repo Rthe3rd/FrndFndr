@@ -34,7 +34,8 @@ function App() {
     <div className="App">
       <Routes>
         <Route path = "/" element = { <Login socket = {socket} token = {setToken} />} />
-        <Route path = "/Landing" element = { <Landing setQuickSearch = {setQuickSearch} quickSearch = {quickSearch} token = {token} />} />
+        {/* <Route path = "/Landing" element = { <Landing setQuickSearch = {setQuickSearch} quickSearch = {quickSearch} token = {token} />} /> */}
+        <Route path = "/Landing" element = { <Landing />} />
         <Route path = "/main" element = { <Main setToken2 = {setToken} passToken = {token} quickSearch = {quickSearch}/> } />
         <Route path = "/messenger" element = { <Chat/>} />
         <Route path = "/:animal/:locale/:token" element = { <SearchResults/> } />

@@ -18,13 +18,13 @@ const NavBar = (props) => {
             </div>
             <div className="bottom-navbar-container">
                 <div className="bottom-container-content"> FrndFndr </div>
-                <navbar className="mobile-navigation">
+                <div className="mobile-navigation">
                     <ul className="hidden-links">
                         <li> Home</li>
                         <li> Shelters</li>
                         <li> Pets Near You</li>
                     </ul>
-                </navbar>
+                </div>
             </div>
         </div>
     )
