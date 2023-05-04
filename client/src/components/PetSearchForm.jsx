@@ -1,7 +1,6 @@
 import {useEffect, useState} from 'react'
 import axios from 'axios'
 import { Navigate, useNavigate } from 'react-router-dom'
-import "../styles/Main.css"
 import magIcon from "../images/mag-icon.svg"
 
 
