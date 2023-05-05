@@ -61,7 +61,7 @@ const SearchResults = () => {
     return (
         <div className="">
             <NavBar />
-            <div className="w-100 d-flex justify-content-around flex-wrap py-4 px-5">
+            <div className="w-100 d-flex justify-content-around flex-wrap py-4 px-5 main__card">
                 {
                     results.map((animal, index) => {
                         return (
@@ -89,9 +89,11 @@ const SearchResults = () => {
                 }
                 <div className='popup__container' style = { isModalActive === true ? { ...style1}   : { display : "none"} }
                 >
+
                     {
-                    isModalActive && 
-                    <div className='popup__card'>
+                        isModalActive && 
+                        <div className='popup__card'>
+                        <button className='btn btn-secondary btn-sm exit-button' onClick={closeModal}> X </button>
                         <div className="image__details__container">
                             <div className='image__container'>
                                 {
@@ -103,23 +105,22 @@ const SearchResults = () => {
                             </div>
                             <div className="details__container">
                                     <h2 className='details__heading'>{dataForModal.name}</h2>
-                                <ul>
-                                    <li>{dataForModal.description && "About me: " + dataForModal.description}</li>
+                                <ul className='detail__list'>
                                     {dataForModal.age && <li>Age: {dataForModal.age}</li> }
                                     {dataForModal.breeds.primary && <li>Breed: {dataForModal.breeds.primary} | {dataForModal.breeds.mixed && "Mixed breed"}</li> }
-                                    {dataForModal.colors.primary != null && <li>Colors: {dataForModal.colors.primary} | {dataForModal.colors.secondary && dataForModal.colors.secondary}</li> }
-                                    {dataForModal.attributes.spayed_neutered && <li> {dataForModal.gender === "male" ? "Neutered" : "Spayed:"}  {dataForModal.attributes.declawed ? "Yes" : "No" } </li>}
+                                    {dataForModal.gender && <li> Gender: {dataForModal.gender}</li> }
+                                    {dataForModal.colors.primary != null && <li>Colors: {dataForModal.colors.primary} | {dataForModal.colors.secondary && dataForModal.colors.secondary} </li> }
                                     <li>Up to date on shots? {dataForModal.attributes.shots_current ? "Yes!" : "No" } </li>
-                                    <li>Gender: {dataForModal.gender}</li>
+                                    <li>{dataForModal.description && "About me: " + dataForModal.description}</li>
+                                    {dataForModal.attributes.spayed_neutered && <li> {dataForModal.gender === "male" ? "Neutered" : "Spayed:"}  {dataForModal.attributes.declawed ? "Yes" : "No" } </li>}
                                     {dataForModal.contact.email && <li> {dataForModal.contact.email && "Email: " + dataForModal.contact.email} </li>}
                                     {dataForModal.contact.phone  &&  <li> {dataForModal.contact.phone && "phone: " + dataForModal.contact.phone} </li> }
                                     {dataForModal.organization && <li> dataForModal.organization </li>}
                                 </ul>
                             </div>
                         </div>
-                        <div className='d-flex justify-content-center'>
-                            <button className='popup__exit btn btn-secondary btn-sm button-text' onClick={closeModal}> Exit </button>
-                            <button className="btn btn-primary btn-sm button-text" onClick={goToChat}>  Interested in adopting {animal.name}? </button>
+                        <div className='d-flex justify-content-center interested-in-adopting-btn'>
+                            <button className="btn btn-primary btn-sm " onClick={goToChat}>  Interested in adopting {animal.name}? </button>
                         </div>
                     </div> 
                     }
