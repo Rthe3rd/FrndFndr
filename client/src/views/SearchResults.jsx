@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { useEffect, useState, Link, useRef, createRef } from 'react';
 import { Navigate, useNavigate, useParams } from 'react-router-dom'
-import DogIcon from '../images/dogIcon.png'
+import DogIcon from '../images/dog-icon-1.png'
 import NavBar from '../components/NavBar'
 
 const SearchResults = () => {
@@ -32,34 +32,31 @@ const SearchResults = () => {
             })
     }, [])
 
-    const [isActive, setIsActive] = useState(false)
-    const [modalIndex, setIndexModal] = useState('')
-
-    const changeCSS  = (event, index) => {
-        console.log(event.target)
-        console.log(index)
-        setIndexModal(index)
-        setIsActive(!isActive)
-    }
+    const [isModalActive, setIsModalActive] = useState(false)
+    const [dataForModal, setDataForModal] = useState('')
 
     const style1 = { display : "block" }
-    const style2 = { background : "rgba(0, 0, 0, 0.7)" }
-    const style3 = { transition: "all 5s" }
 
-
-    const moreDetails = (animal, index) => {
-        console.log(index)
-        // animal.target.style.display = "block"
+    const openModal = (animal, index) => {
+        console.log("Animal: ", animal)
+        console.log("Index: ", index)
+        setDataForModal(animal)
+        setIsModalActive(true)
     }
 
-    const exitPopup = () => {
-        setIndexModal(null)
+    const closeModal = () => {
+        setIsModalActive(false)
     }
 
 
     const goToChat = () => {
         navigate('/ChatPage')
     }
+
+
+
+
+
 
     return (
         <div className="">
@@ -73,16 +70,15 @@ const SearchResults = () => {
                                     <div className="card shadow rounded" style={{ width: "19rem" }}>
                                         {animal.primary_photo_cropped == null
                                             ?
-                                            <img className="card-img-top rounded card-image" src={DogIcon} alt="Card image cap" />
+                                            <img className="card-img-top rounded card-image" src={DogIcon} style ={{padding: "16px"}}  />
                                             :
-                                            <img className="card-img-top rounded card-image shadow" src={animal.primary_photo_cropped.large} alt="Card image cap" />
+                                            <img className="card-img-top rounded card-image shadow" src={animal.primary_photo_cropped.large}  />
                                         }
                                         <div className="card-body">
                                             <h5 className="card-title dog-name">{animal.name}</h5>
                                             <div className="card-text dog-details">{animal.age} | {animal.gender.toLowerCase()} | {animal.breeds.primary}</div>
                                             <div className="d-flex justify-content-center">
-                                                {/* <button className='btn btn-sm btn-primary' id="popup__button" key={index} animal={animal} onClick={animal => moreDetails(animal, index)} >Learn more</button> */}
-                                                <button className='btn btn-sm btn-primary' id="popup__button" key={index} animal={animal} onClick={animal => changeCSS(animal, index)} >Learn more</button>
+                                                <button className='btn btn-sm btn-primary' id="popup__button" key={index} animal={animal} onClick={event => openModal(animal, index)} >Learn more</button>
                                             </div>
                                         </div>
                                     </div>
@@ -91,60 +87,98 @@ const SearchResults = () => {
                         )
                     })
                 }
-                {
-                    results.map((animal, index) => {
-                        return (
-                            <>
-                            {/* {`${modalIndex == index ? "popup__container__show" : "popup__container"}`} */}
-                            <div className="popup__container"  id="popup__container" key={index} animal={animal} index={index} 
-                            style = { modalIndex == index ? { ...style1, ...style2, ...style3 }   : { display : "none", ...style3} }
-                            >
-                                <div className='popup__card'>
-                                    <h3 className="text-center">{animal.name}</h3>
-                                    <div className=''>
-                                        {animal.primary_photo_cropped == null
-                                            ?
-                                            <img className="card-img-top rounded card-image" src={DogIcon} alt="Card image cap" />
-                                            :
-                                            <img className="detailPhoto rounded shadow p-2" src={animal.primary_photo_cropped.medium} alt="detailPhoto" />
-                                        }
-                                    </div>
-                                    <ul className='button-text mx-2 mt-2'>
-                                        <li>Age: {animal.age}</li>
-                                        <li>Gender: {animal.gender}</li>
-                                        <li>Breed(s): {animal.breeds.primary ? animal.breeds.primary : "n/a"}  {animal.breeds.secondary ? `/ ${animal.breeds.secondary}` : ""}</li>
-                                        {animal.tags.length != 0 &&
-                                            <li>
-                                                {animal.name} {animal.tags.map((tag, index) => {
-                                                    return (
-                                                        <div key={index} className="w-100 d-flex justify-content-between">
-                                                            <div key={index} className="d-inline-block"> {tag} </div>
-                                                        </div>
-                                                    )
-                                                })}
-                                            </li>
-                                        }
-                                        <li>Contact Information for {animal.name}:
-                                            <ul>
-                                                <li>Email: {animal.contact.email ? animal.contact.email : "n/a"} </li>
-                                                <li>Phone: {animal.contact.phone ? `${animal.contact.phone}` : "n/a"}</li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                    <button className='popup__exit' onClick={exitPopup}> Exit </button>
-                                    <div className='d-flex justify-content-center'>
-                                        <button className="btn btn-primary btn-sm button-text" onClick={goToChat}>  Interested in adopting {animal.name}? </button>
-                                    </div>
-                                    <button className="btn btn-primary btn-sm button-text" onClick={goToChat}> Interested in adopting {animal.name}? </button>
-                                </div>
+                <div className='popup__container' style = { isModalActive === true ? { ...style1}   : { display : "none"} }
+                >
+                    {
+                    isModalActive && 
+                    <div className='popup__card'>
+                        <div className="image__details__container">
+                            <div className='image__container'>
+                                {
+                                    dataForModal.photos.length > 0 ? 
+                                    <img className="card-img-top rounded card-image" src={dataForModal.photos[0]["medium"]}  />
+                                    : 
+                                    <img className="card-img-top rounded card-image" src={DogIcon}  />
+                                }
                             </div>
-                            </>
-                        )
-                    })
-                }
+                            <div className="details__container">
+                                    <h2 className='details__heading'>{dataForModal.name}</h2>
+                                <ul>
+                                    <li>{dataForModal.description && "About me: " + dataForModal.description}</li>
+                                    {dataForModal.age && <li>Age: {dataForModal.age}</li> }
+                                    {dataForModal.breeds.primary && <li>Breed: {dataForModal.breeds.primary} | {dataForModal.breeds.mixed && "Mixed breed"}</li> }
+                                    {dataForModal.colors.primary != null && <li>Colors: {dataForModal.colors.primary} | {dataForModal.colors.secondary && dataForModal.colors.secondary}</li> }
+                                    {dataForModal.attributes.spayed_neutered && <li> {dataForModal.gender === "male" ? "Neutered" : "Spayed:"}  {dataForModal.attributes.declawed ? "Yes" : "No" } </li>}
+                                    <li>Up to date on shots? {dataForModal.attributes.shots_current ? "Yes!" : "No" } </li>
+                                    <li>Gender: {dataForModal.gender}</li>
+                                    {dataForModal.contact.email && <li> {dataForModal.contact.email && "Email: " + dataForModal.contact.email} </li>}
+                                    {dataForModal.contact.phone  &&  <li> {dataForModal.contact.phone && "phone: " + dataForModal.contact.phone} </li> }
+                                    {dataForModal.organization && <li> dataForModal.organization </li>}
+                                </ul>
+                            </div>
+                        </div>
+                        <div className='d-flex justify-content-center'>
+                            <button className='popup__exit btn btn-secondary btn-sm button-text' onClick={closeModal}> Exit </button>
+                            <button className="btn btn-primary btn-sm button-text" onClick={goToChat}>  Interested in adopting {animal.name}? </button>
+                        </div>
+                    </div> 
+                    }
+                </div>
+
             </div>
         </div>
     )
 }
 
 export default SearchResults;
+
+
+// {
+//     results.map((animal, index) => {
+//         return (
+//             <>
+//             <div className="popup__container"  id="popup__container" key={index} animal={animal} index={index} 
+//             style = { modalIndex == index ? { ...style1, ...style2, ...style3 }   : { display : "none", ...style3} }
+//             >
+                // <div className='popup__card'>
+                //     <h3 className="text-center">{animal.name}</h3>
+                //     <div className=''>
+                //         {animal.primary_photo_cropped == null
+                //             ?
+                //             <img className="card-img-top rounded card-image" src={DogIcon}  />
+                //             :
+                //             <img className="detailPhoto rounded shadow p-2" src={animal.primary_photo_cropped.medium}                 //         }
+                //     </div>
+                //     <ul className='button-text mx-2 mt-2'>
+                //         <li>Age: {animal.age}</li>
+                //         <li>Gender: {animal.gender}</li>
+                //         <li>Breed(s): {animal.breeds.primary ? animal.breeds.primary : "n/a"}  {animal.breeds.secondary ? `/ ${animal.breeds.secondary}` : ""}</li>
+                //         {animal.tags.length != 0 &&
+                //             <li>
+                //                 {animal.name} {animal.tags.map((tag, index) => {
+                //                     return (
+                //                         <div key={index} className="w-100 d-flex justify-content-between">
+                //                             <div key={index} className="d-inline-block"> {tag} </div>
+                //                         </div>
+                //                     )
+                //                 })}
+                //             </li>
+                //         }
+                //         <li>Contact Information for {animal.name}:
+                //             <ul>
+                //                 <li>Email: {animal.contact.email ? animal.contact.email : "n/a"} </li>
+                //                 <li>Phone: {animal.contact.phone ? `${animal.contact.phone}` : "n/a"}</li>
+                //             </ul>
+                //         </li>
+                //     </ul>
+                    // <button className='popup__exit' onClick={exitPopup}> Exit </button>
+                    // <div className='d-flex justify-content-center'>
+                    //     <button className="btn btn-primary btn-sm button-text" onClick={goToChat}>  Interested in adopting {animal.name}? </button>
+                    // </div>
+//                     <button className="btn btn-primary btn-sm button-text" onClick={goToChat}> Interested in adopting {animal.name}? </button>
+//                 </div>
+//             </div>
+//             </>
+//         )
+//     })
+// }

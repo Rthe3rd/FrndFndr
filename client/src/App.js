@@ -39,7 +39,6 @@ function App() {
         <Route path = "/:animal/:locale/:token" element = { <SearchResults/> } />
         <Route path = "/ChatHomeOld" element = { <ChatHome socket = {socket}/>} />
         <Route path = "/ChatPage" element = { <ChatPage socket = {socket}/>} />
-        <Route path = "/test" element = { <Test />} />
         <Route path = '/:quickSearch' element = { <QuickSearch passToken = {token} quickSearch = {quickSearch}/>} />
       </Routes>  
     </div>  

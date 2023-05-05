@@ -209,21 +209,34 @@
   overflow: auto;
   transition: all 5s;
   background: rgba(0, 0, 0, 0.7);
-  z-index:1
+  z-index: 1000;
 }
 
 
 .popup__card{
   padding: 2rem;
-  /* width: 50%; */
-  height: 50%;
-  background-color: red ;
+  width: 75%;
+  border-radius: 5px;
+  background-color: gainsboro ;
   max-width: 1500px;
   position: relative;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   transition: all .5 ease-in-out;
+}
+
+.image__details__container{
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+}
+
+.details__container{
+  text-align: left;
+}
+
+.details__heading{
+  text-align: center;
 }
 
 *{
@@ -387,8 +400,6 @@
       width: 1200px;
   }
 }
-
-
 
 
 /********************** Home/ChatPage **********************/
