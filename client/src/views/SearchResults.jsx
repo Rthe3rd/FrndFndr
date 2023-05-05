@@ -54,10 +54,6 @@ const SearchResults = () => {
     }
 
 
-
-
-
-
     return (
         <div className="">
             <NavBar />
@@ -65,15 +61,19 @@ const SearchResults = () => {
                 {
                     results.map((animal, index) => {
                         return (
+                            // animal.primary_photo_cropped &&
                             <div key={index} >
                                 <div className="d-flex p-2 resultCard">
                                     <div className="card shadow rounded" style={{ width: "19rem" }}>
-                                        {animal.primary_photo_cropped == null
-                                            ?
-                                            <img className="card-img-top rounded card-image" src={DogIcon} style ={{padding: "16px"}}  />
-                                            :
-                                            <img className="card-img-top rounded card-image shadow" src={animal.primary_photo_cropped.large}  />
-                                        }
+                                        <div className='img-container'>
+                                            {animal.primary_photo_cropped == null
+                                                ?
+                                                <img className="card-img-top rounded card-image" src={DogIcon} style ={{padding: "16px"}}  />
+                                                :
+                                                <img className="card-img-top rounded card-image shadow" src={animal.primary_photo_cropped.large}  />
+                                            }
+
+                                        </div>
                                         <div className="card-body">
                                             <h5 className="card-title dog-name">{animal.name}</h5>
                                             <div className="card-text dog-details">{animal.age} | {animal.gender.toLowerCase()} | {animal.breeds.primary}</div>
@@ -84,6 +84,7 @@ const SearchResults = () => {
                                     </div>
                                 </div>
                             </div>
+
                         )
                     })
                 }

@@ -175,9 +175,14 @@
   width: 80%;
 }
 
+.img-container{
+  height:100%;
+}
+
 .card-image{
-  width: 100%;
+  aspect-ratio: 4/3;
   object-fit: cover;
+  border-radius: 16px;
 }
 
 .see-more-button{
@@ -221,7 +226,7 @@
   width: 75%;
   max-width: 1500px;
   height: min-content;
-  /* border-radius: 5px; */
+  border-radius: 16px;
   background-color: gainsboro ;
   background-image: linear-gradient(to bottom right, #B0B0B0, #FFFFFF); 
   position: relative;
@@ -248,7 +253,7 @@
 }
 
 .detail__list > li {
-  line-height: 24px;
+  line-height: 32px;
   color: #161615;
 }
 
@@ -260,7 +265,7 @@
 
 .exit-button{
   position: relative;
-  left: 54%;
+  left: 53%;
   top: -45px;
   width: 32px;
   height: 32px;
